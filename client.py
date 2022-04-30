@@ -15,7 +15,7 @@ def main():
         server_address = DEFAULT_IP_ADDRESS
 
     try:
-        server_port = sys.argv[2]
+        server_port = int(sys.argv[2])
     except IndexError:
         print("Server port wasn't found. Using default port")
         server_port = DEFAULT_PORT
