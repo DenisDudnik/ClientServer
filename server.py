@@ -5,9 +5,9 @@ from shared.const import ENCODING, DEFAULT_PORT, MAX_CONNECTIONS, MAX_PACKAGE_LE
 
 
 def main():
-    "server -p 5555 -a 127.0.0.1"
+    # server -p 5555 -a 127.0.0.1
 
-    "try to find port in args"
+    # try to find port in args
     if '-p' in sys.argv:
         try:
             server_port = int(sys.argv[sys.argv.index('-p') + 1])
@@ -22,7 +22,7 @@ def main():
     else:
         server_port = DEFAULT_PORT
 
-    "try to find address in args"
+    # try to find address in args
     if '-a' in sys.argv:
         try:
             server_address = sys.argv[sys.argv.index('-a') + 1]
