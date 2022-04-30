@@ -1,7 +1,25 @@
 import sys
 import json
 from socket import socket, AF_INET, SOCK_STREAM
-from shared.const import ENCODING, DEFAULT_PORT, MAX_CONNECTIONS, MAX_PACKAGE_LENGTH
+from shared.const import ENCODING, DEFAULT_PORT, MAX_CONNECTIONS, MAX_PACKAGE_LENGTH, \
+    ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, RESPONSE, ERROR, ALERT
+from shared.func import get_message, send_message
+
+
+def create_response(msg):
+    if ACTION in msg and msg[ACTION] == PRESENCE and TIME in msg and USER in msg \
+            and msg[USER][ACCOUNT_NAME] == 'client1':
+        # and msg[USER][ACCOUNT_NAME] in contact_list:
+        msg = {
+            RESPONSE: 200,
+            ALERT: "OK"
+        }
+    else:
+        msg = {
+            RESPONSE: 400,
+            ERROR: "Bad Request"
+        }
+    return msg
 
 
 def main():
@@ -44,12 +62,15 @@ def main():
 
         while True:
             client, addr = s.accept()
-            data = client.recv(MAX_PACKAGE_LENGTH)
-            print('From:', addr, ' =>', data.decode(ENCODING))
-
-            msg = 'Привет'
-            client.send(msg.encode(ENCODING))
-            client.close
+            try:
+                data = get_message(client)
+                print('From:', addr, ' =>', data)
+                msg = create_response(data)
+                send_message(client, msg)
+            except (ValueError, json.JSONDecodeError):
+                print('Unknown message from server')
+            finally:
+                client.close
     finally:
         s.close()
 
