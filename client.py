@@ -2,9 +2,9 @@ import json
 import sys
 import time
 from socket import socket, AF_INET, SOCK_STREAM
-from shared.const import DEFAULT_IP_ADDRESS, DEFAULT_PORT, ACTION, PRESENCE, \
+from utils.const import DEFAULT_IP_ADDRESS, DEFAULT_PORT, ACTION, PRESENCE, \
     TIME, USER, ACCOUNT_NAME, RESPONSE, ERROR, ALERT
-from shared.func import get_message, send_message
+from utils.func import get_message, send_message
 
 
 def create_presence(account_name='guest', status=''):

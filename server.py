@@ -1,9 +1,9 @@
 import sys
 import json
 from socket import socket, AF_INET, SOCK_STREAM
-from shared.const import ENCODING, DEFAULT_PORT, MAX_CONNECTIONS, MAX_PACKAGE_LENGTH, \
+from utils.const import ENCODING, DEFAULT_PORT, MAX_CONNECTIONS, MAX_PACKAGE_LENGTH, \
     ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, RESPONSE, ERROR, ALERT
-from shared.func import get_message, send_message
+from utils.func import get_message, send_message
 
 
 def create_response(msg):

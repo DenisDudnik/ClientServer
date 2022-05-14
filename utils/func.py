@@ -1,5 +1,5 @@
 import json
-from shared.const import ENCODING, MAX_PACKAGE_LENGTH
+from utils.const import ENCODING, MAX_PACKAGE_LENGTH
 
 
 def send_message(sock, msg):
