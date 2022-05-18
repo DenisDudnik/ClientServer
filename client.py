@@ -1,11 +1,14 @@
 import json
 import sys
 import time
+import logging
+import log.config.client_log_config
 from socket import socket, AF_INET, SOCK_STREAM
 from utils.const import DEFAULT_IP_ADDRESS, DEFAULT_PORT, ACTION, PRESENCE, \
     TIME, USER, ACCOUNT_NAME, RESPONSE, ERROR, ALERT
 from utils.func import get_message, send_message
 
+logger = logging.getLogger('app.client')
 
 def create_presence(account_name='guest', status=''):
     msg = {
@@ -17,10 +20,12 @@ def create_presence(account_name='guest', status=''):
             "status": status
         }
     }
+    logger.debug(f'Create presence message: {msg}')
     return msg
 
 
 def process_answer(msg: dict):
+    logger.debug(f'Process message: {msg}')
     if RESPONSE in msg:
         # for 2xx messages
         if msg[RESPONSE] in range(200, 300):
@@ -37,30 +42,30 @@ def main():
     try:
         server_address = sys.argv[1]
     except IndexError:
-        print("Server address wasn't found. Using default address")
+        logger.warning("Server address wasn't found. Using default address")
         server_address = DEFAULT_IP_ADDRESS
 
     try:
         server_port = int(sys.argv[2])
     except IndexError:
-        print("Server port wasn't found. Using default port")
+        logger.warning("Server port wasn't found. Using default port")
         server_port = DEFAULT_PORT
 
     # init socket, connect, send message, get answer
     s = socket(AF_INET, SOCK_STREAM)
     try:
-        print(f'Connecting to {server_address}:{server_port}')
+        logger.info(f'Connecting to {server_address}:{server_port}')
         s.connect((server_address, server_port))
     except Exception as e:
-        print('Connection failed. Error: ', e)
+        logger.critical('Connection failed. Error: ', e)
     else:
         msg = create_presence(account_name='client1', status='I am here!')
         send_message(s, msg)
         try:
             data = get_message(s)
-            print('From server: ', process_answer(data))
+            logger.debug('From server: ', process_answer(data))
         except (ValueError, json.JSONDecodeError):
-            print('Unknown message from server')
+            logger.warning('Unknown message from server')
     finally:
         s.close()
 

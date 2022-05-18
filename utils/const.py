@@ -1,4 +1,5 @@
 """Project constants"""
+import logging
 
 # Default port
 DEFAULT_PORT = 7777
@@ -10,6 +11,8 @@ MAX_CONNECTIONS = 5
 MAX_PACKAGE_LENGTH = 1024
 # Project encoding
 ENCODING = 'utf-8'
+# Logging level
+LOG_LEVEL = logging.DEBUG
 
 # Protocol JIM main keys:
 ACTION = 'action'
