@@ -8,7 +8,7 @@ sys.path.append(path)
 
 from utils.const import ENCODING, LOG_LEVEL
 
-logger = logging.getLogger('server')
+logger = logging.getLogger('app.server')
 
 formatter = logging.Formatter(
     '%(asctime)-24s %(levelname)-8s %(module)-20s %(message)s')
