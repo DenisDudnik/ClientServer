@@ -3,14 +3,14 @@ import json
 import logging
 import log.config.server_log_config
 from socket import socket, AF_INET, SOCK_STREAM
-from decors import Log
+from decors import Log, log_dec
 from utils.const import ENCODING, DEFAULT_PORT, MAX_CONNECTIONS, MAX_PACKAGE_LENGTH, \
     ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, RESPONSE, ERROR, ALERT
 from utils.func import get_message, send_message
 
 logger = logging.getLogger('app.server')
 
-@Log()
+@log_dec
 def create_response(msg):
     '''Function to create a response'''
     logger.debug(f'Process message: {msg}')

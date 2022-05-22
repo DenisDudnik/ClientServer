@@ -26,3 +26,13 @@ class Log():
             logger.debug(f'Function {func.__name__} was called from function {inspect.stack()[1].function}', stacklevel=2)
             return res
         return wrapper
+
+def log_dec(func):
+    '''Decorator for logging'''
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        '''Decorated function'''
+        res = func(*args, **kwargs)
+        logger.debug(f'Function {func.__name__} was called from function {inspect.stack()[1].function}', stacklevel=2)
+        return res
+    return wrapper
