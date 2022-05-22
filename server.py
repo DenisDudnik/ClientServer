@@ -3,13 +3,16 @@ import json
 import logging
 import log.config.server_log_config
 from socket import socket, AF_INET, SOCK_STREAM
+from decors import Log
 from utils.const import ENCODING, DEFAULT_PORT, MAX_CONNECTIONS, MAX_PACKAGE_LENGTH, \
     ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, RESPONSE, ERROR, ALERT
 from utils.func import get_message, send_message
 
-logger = logging.getLogger('server')
+logger = logging.getLogger('app.server')
 
+@Log()
 def create_response(msg):
+    '''Function to create a response'''
     logger.debug(f'Process message: {msg}')
     if ACTION in msg and msg[ACTION] == PRESENCE and TIME in msg and USER in msg \
             and msg[USER][ACCOUNT_NAME] == 'client1':
@@ -59,7 +62,7 @@ def main():
     server_address_pair = (server_address, server_port)
     try:
         s.bind(server_address_pair)
-        logger.info('Старт сервера на IP "{}" порт "{}"'.format(*server_address_pair))
+        logger.info('Server starting with IP "{}" and PORT "{}"'.format(*server_address_pair))
     except OSError as e:
         logger.error('Error open socket. Error: ', e)
     else:

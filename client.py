@@ -4,13 +4,16 @@ import time
 import logging
 import log.config.client_log_config
 from socket import socket, AF_INET, SOCK_STREAM
+from decors import Log
 from utils.const import DEFAULT_IP_ADDRESS, DEFAULT_PORT, ACTION, PRESENCE, \
     TIME, USER, ACCOUNT_NAME, RESPONSE, ERROR, ALERT
 from utils.func import get_message, send_message
 
 logger = logging.getLogger('app.client')
 
+@Log()
 def create_presence(account_name='guest', status=''):
+    '''Function create presence message'''
     msg = {
         ACTION: PRESENCE,
         TIME: time.time(),
@@ -24,7 +27,9 @@ def create_presence(account_name='guest', status=''):
     return msg
 
 
+@Log()
 def process_answer(msg: dict):
+    '''Function process answer message'''
     logger.debug(f'Process message: {msg}')
     if RESPONSE in msg:
         # for 2xx messages
