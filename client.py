@@ -1,3 +1,4 @@
+import argparse
 import json
 import sys
 import time
@@ -40,21 +41,32 @@ def process_answer(msg: dict):
     raise ValueError
 
 
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("server_address", help="server address", default=DEFAULT_IP_ADDRESS, nargs="?")
+    parser.add_argument("server_port", type=int, help="server port", default=DEFAULT_PORT, nargs="?")
+    parser.add_argument("-m", "--mode", help="client mode", default="read", nargs="?")
+    args = parser.parse_args()
+
+    server_address = args.server_address
+    server_port = args.server_port
+    client_mode = args.mode
+
+    if server_port < 1024 or server_port > 65535:
+        logger.critical(f'Port should be in range 1024 to 65535. Port given is {server_port}')
+        sys.exit(1)
+    
+    if not client_mode in ('read', 'send'):
+        logger.critical(f"Client mode should be 'read' or 'send'. Mode given is {client_mode}")
+        sys.exit(1)
+    
+    return server_address, server_port, client_mode
+
+
 def main():
-    # client 127.0.0.1 5555
+    # client 127.0.0.1 5555 -m send
 
-    # try to find server address and port in args
-    try:
-        server_address = sys.argv[1]
-    except IndexError:
-        logger.warning("Server address wasn't found. Using default address")
-        server_address = DEFAULT_IP_ADDRESS
-
-    try:
-        server_port = int(sys.argv[2])
-    except IndexError:
-        logger.warning("Server port wasn't found. Using default port")
-        server_port = DEFAULT_PORT
+    server_address, server_port, client_mode = get_args()
 
     # init socket, connect, send message, get answer
     s = socket(AF_INET, SOCK_STREAM)
