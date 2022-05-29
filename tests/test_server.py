@@ -33,7 +33,7 @@ class TestServer(unittest.TestCase):
                 "status": 'I am here!'
             }
         }
-        self.assertEqual(create_response(msg), self.msg_ok)
+        self.assertEqual(create_response(msg, None, []), self.msg_ok)
 
     def test_create_response_wrong_action(self):
         msg = {
@@ -45,7 +45,7 @@ class TestServer(unittest.TestCase):
                 "status": 'I am here!'
             }
         }
-        self.assertEqual(create_response(msg), self.msg_bad)
+        self.assertEqual(create_response(msg, None, []), self.msg_bad)
     
     def test_create_response_no_action(self):
         msg = {
@@ -56,7 +56,7 @@ class TestServer(unittest.TestCase):
                 "status": 'I am here!'
             }
         }
-        self.assertEqual(create_response(msg), self.msg_bad)
+        self.assertEqual(create_response(msg, None, []), self.msg_bad)
     
     def test_create_response_no_time(self):
         msg = {
@@ -67,7 +67,7 @@ class TestServer(unittest.TestCase):
                 "status": 'I am here!'
             }
         }
-        self.assertEqual(create_response(msg), self.msg_bad)
+        self.assertEqual(create_response(msg, None, []), self.msg_bad)
 
     def test_create_response_no_user(self):
         msg = {
@@ -75,7 +75,7 @@ class TestServer(unittest.TestCase):
             TIME: 1.1,
             "type": "status",
         }
-        self.assertEqual(create_response(msg), self.msg_bad)
+        self.assertEqual(create_response(msg, None, []), self.msg_bad)
 
     def test_create_response_wrong_user(self):
         msg = {
@@ -87,7 +87,7 @@ class TestServer(unittest.TestCase):
                 "status": 'I am here!'
             }
         }
-        self.assertEqual(create_response(msg), self.msg_bad)
+        self.assertEqual(create_response(msg, None, []), self.msg_bad)
 
 
 if __name__ == '__main__':
