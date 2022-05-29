@@ -1,3 +1,4 @@
+import argparse
 import sys
 import json
 import logging
@@ -30,33 +31,26 @@ def create_response(msg):
     return msg
 
 
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-a", "--address", help="server address", default="", nargs="?")
+    parser.add_argument("-p", "--port", type=int, help="server port", default=DEFAULT_PORT, nargs="?")
+    args = parser.parse_args()
+
+    server_address = args.address
+    server_port = args.port
+
+    if server_port < 1024 or server_port > 65535:
+        logger.critical(f'Port should be in range 1024 to 65535. Port given is {server_port}')
+        sys.exit(1)
+    
+    return server_address, server_port
+
+
 def main():
     # server -p 5555 -a 127.0.0.1
 
-    # try to find port in args
-    if '-p' in sys.argv:
-        try:
-            server_port = int(sys.argv[sys.argv.index('-p') + 1])
-            if server_port < 1024 or server_port > 65535:
-                raise ValueError
-        except IndexError:
-            logger.error('After -p should be port number')
-            sys.exit(1)
-        except ValueError:
-            logger.error('Port should be a number in 1024..65535')
-            sys.exit(1)
-    else:
-        server_port = DEFAULT_PORT
-
-    # try to find address in args
-    if '-a' in sys.argv:
-        try:
-            server_address = sys.argv[sys.argv.index('-a') + 1]
-        except IndexError:
-            logger.error('After -a should be address to listen')
-            sys.exit(1)
-    else:
-        server_address = ''
+    server_address, server_port = get_args()
 
     s = socket(AF_INET, SOCK_STREAM)
     server_address_pair = (server_address, server_port)
