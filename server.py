@@ -64,7 +64,7 @@ def main():
         s.bind(server_address_pair)
         logger.info('Server starting with IP "{}" and PORT "{}"'.format(*server_address_pair))
     except OSError as e:
-        logger.error('Error open socket. Error: ', e)
+        logger.error('Error open socket. Error: {e}')
     else:
         s.listen(MAX_CONNECTIONS)
         logger.info(f'Server was run on {server_address}:{server_port}')

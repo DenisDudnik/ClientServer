@@ -74,13 +74,13 @@ def main():
         logger.info(f'Connecting to {server_address}:{server_port}')
         s.connect((server_address, server_port))
     except Exception as e:
-        logger.critical('Connection failed. Error: ', e)
+        logger.critical(f'Connection failed. Error: {e}')
     else:
         msg = create_presence(account_name='client1', status='I am here!')
         send_message(s, msg)
         try:
             data = get_message(s)
-            logger.debug('From server: ', process_answer(data))
+            logger.debug(f'From server: {process_answer(data)}')
         except (ValueError, json.JSONDecodeError):
             logger.warning('Unknown message from server')
     finally:
