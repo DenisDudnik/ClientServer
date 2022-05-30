@@ -1,0 +1,167 @@
+2022-05-29 17:33:55,860  INFO     server               Server starting with IP "" and PORT "7777"
+2022-05-29 17:33:55,861  INFO     server               Server was run on :7777
+2022-05-29 17:33:55,906  INFO     server               From: ('127.0.0.1', 57320) => {'action': 'presence', 'time': 1653834835.863105, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 17:33:55,906  DEBUG    server               Process message: {'action': 'presence', 'time': 1653834835.863105, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 17:33:55,906  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 17:33:55,932  DEBUG    server               Function create_response was called from function main
+2022-05-29 17:40:27,283  INFO     server               Server starting with IP "" and PORT "7777"
+2022-05-29 17:40:27,284  INFO     server               Server was run on :7777
+2022-05-29 17:40:56,943  INFO     server               From: ('127.0.0.1', 57364) => {'action': 'presence', 'time': 1653835256.9158866, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 17:40:56,943  DEBUG    server               Process message: {'action': 'presence', 'time': 1653835256.9158866, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 17:40:56,944  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 17:40:56,991  DEBUG    server               Function create_response was called from function main
+2022-05-29 17:45:21,415  INFO     server               Server starting with IP "" and PORT "7777"
+2022-05-29 17:45:21,415  INFO     server               Server was run on :7777
+2022-05-29 17:45:31,135  INFO     server               From: ('127.0.0.1', 57394) => {'action': 'presence', 'time': 1653835531.1094306, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 17:45:31,136  DEBUG    server               Process message: {'action': 'presence', 'time': 1653835531.1094306, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 17:45:31,136  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 17:45:31,163  DEBUG    server               Function create_response was called from function main
+2022-05-29 17:50:29,869  INFO     server               Server starting with IP "" and PORT "7777"
+2022-05-29 17:50:29,869  INFO     server               Server was run on :7777
+2022-05-29 17:50:30,420  INFO     server               From: ('127.0.0.1', 57416) => {'action': 'presence', 'time': 1653835830.3733616, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 17:50:30,420  DEBUG    server               Process message: {'action': 'presence', 'time': 1653835830.3733616, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 17:50:30,421  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 17:50:30,448  DEBUG    server               Function create_response was called from function main
+2022-05-29 17:52:55,777  INFO     server               Server starting with IP "" and PORT "7777"
+2022-05-29 17:52:55,777  INFO     server               Server was run on :7777
+2022-05-29 17:52:55,805  INFO     server               From: ('127.0.0.1', 57440) => {'action': 'presence', 'time': 1653835975.7791605, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 17:52:55,805  DEBUG    server               Process message: {'action': 'presence', 'time': 1653835975.7791605, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 17:52:55,805  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 17:52:55,832  DEBUG    server               Function create_response was called from function main
+2022-05-29 17:54:48,843  INFO     server               Server starting with IP "" and PORT "7777"
+2022-05-29 17:54:48,844  INFO     server               Server was run on :7777
+2022-05-29 17:54:48,874  INFO     server               From: ('127.0.0.1', 57453) => {'action': 'presence', 'time': 1653836088.8478026, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 17:54:48,874  DEBUG    server               Process message: {'action': 'presence', 'time': 1653836088.8478026, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 17:54:48,874  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 17:54:48,900  DEBUG    server               Function create_response was called from function main
+2022-05-29 18:53:56,109  INFO     server               Server starting with IP "" and PORT "7777"
+2022-05-29 18:53:56,110  INFO     server               Server was run on :7777
+2022-05-29 18:53:56,624  INFO     server               Client connected ('127.0.0.1', 52500)
+2022-05-29 18:53:56,826  DEBUG    server               Process message: {'action': 'presence', 'time': 1653839636.6241965, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 18:53:56,827  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 18:53:56,876  DEBUG    server               Function create_response was called from function main
+2022-05-29 18:54:03,964  DEBUG    server               Process message: {'action': 'msg', 'time': 1653839643.7867165, 'from': 'client1', 'message': '2'}
+2022-05-29 18:54:03,965  INFO     server               Create response: {'action': 'msg', 'time': 1653839643.7867165, 'from': 'client1', 'message': '2'}
+2022-05-29 18:54:03,967  DEBUG    server               Function create_response was called from function main
+2022-05-29 18:54:40,344  INFO     server               Client ('127.0.0.1', 52500) disconnected
+2022-05-29 18:57:00,235  INFO     server               Server starting with IP "" and PORT "7777"
+2022-05-29 18:57:00,236  INFO     server               Server was run on :7777
+2022-05-29 18:57:00,240  INFO     server               Client connected ('127.0.0.1', 52514)
+2022-05-29 18:57:00,451  DEBUG    server               Process message: {'action': 'presence', 'time': 1653839820.2402987, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 18:57:00,452  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 18:57:00,494  DEBUG    server               Function create_response was called from function main
+2022-05-29 18:57:05,967  DEBUG    server               Process message: {'action': 'msg', 'time': 1653839825.7926495, 'from': 'client1', 'message': '12'}
+2022-05-29 18:57:05,968  INFO     server               Create response: {'action': 'msg', 'time': 1653839825.7926495, 'from': 'client1', 'message': '12'}
+2022-05-29 18:57:05,970  DEBUG    server               Function create_response was called from function main
+2022-05-29 18:57:13,939  DEBUG    server               Process message: {'action': 'msg', 'time': 1653839833.8164856, 'from': 'client1', 'message': '654'}
+2022-05-29 18:57:13,940  INFO     server               Create response: {'action': 'msg', 'time': 1653839833.8164856, 'from': 'client1', 'message': '654'}
+2022-05-29 18:57:13,942  DEBUG    server               Function create_response was called from function main
+2022-05-29 18:57:29,733  DEBUG    server               Process message: {'action': 'msg', 'time': 1653839849.7291725, 'from': 'client1', 'message': '564'}
+2022-05-29 18:57:29,733  INFO     server               Create response: {'action': 'msg', 'time': 1653839849.7291725, 'from': 'client1', 'message': '564'}
+2022-05-29 18:57:29,734  DEBUG    server               Function create_response was called from function main
+2022-05-29 18:57:39,669  DEBUG    server               Process message: {'action': 'msg', 'time': 1653839859.5607417, 'from': 'client1', 'message': '6548'}
+2022-05-29 18:57:39,670  INFO     server               Create response: {'action': 'msg', 'time': 1653839859.5607417, 'from': 'client1', 'message': '6548'}
+2022-05-29 18:57:39,672  DEBUG    server               Function create_response was called from function main
+2022-05-29 18:57:48,599  DEBUG    server               Process message: {'action': 'msg', 'time': 1653839868.4726791, 'from': 'client1', 'message': '648'}
+2022-05-29 18:57:48,600  INFO     server               Create response: {'action': 'msg', 'time': 1653839868.4726791, 'from': 'client1', 'message': '648'}
+2022-05-29 18:57:48,602  DEBUG    server               Function create_response was called from function main
+2022-05-29 18:59:52,377  INFO     server               Server starting with IP "" and PORT "7777"
+2022-05-29 18:59:52,378  INFO     server               Server was run on :7777
+2022-05-29 18:59:52,395  INFO     server               Client connected ('127.0.0.1', 52534)
+2022-05-29 18:59:52,396  INFO     server               Client connected ('127.0.0.1', 52535)
+2022-05-29 18:59:52,605  DEBUG    server               Process message: {'action': 'presence', 'time': 1653839992.3954883, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 18:59:52,606  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 18:59:52,650  DEBUG    server               Function create_response was called from function main
+2022-05-29 18:59:52,650  DEBUG    server               Process message: {'action': 'presence', 'time': 1653839992.3954883, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 18:59:52,651  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 18:59:52,652  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:00:09,917  DEBUG    server               Process message: {'action': 'msg', 'time': 1653840009.8476884, 'from': 'client1', 'message': '1263'}
+2022-05-29 19:00:09,917  INFO     server               Create response: {'action': 'msg', 'time': 1653840009.8476884, 'from': 'client1', 'message': '1263'}
+2022-05-29 19:00:09,920  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:00:26,353  DEBUG    server               Process message: {'action': 'msg', 'time': 1653840026.2955759, 'from': 'client1', 'message': '456'}
+2022-05-29 19:00:26,354  INFO     server               Create response: {'action': 'msg', 'time': 1653840026.2955759, 'from': 'client1', 'message': '456'}
+2022-05-29 19:00:26,356  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:00:32,657  DEBUG    server               Process message: {'action': 'msg', 'time': 1653840032.5913103, 'from': 'client1', 'message': '789'}
+2022-05-29 19:00:32,658  INFO     server               Create response: {'action': 'msg', 'time': 1653840032.5913103, 'from': 'client1', 'message': '789'}
+2022-05-29 19:00:32,660  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:00:45,058  DEBUG    server               Process message: {'action': 'msg', 'time': 1653840045.0074942, 'from': 'client1', 'message': '159'}
+2022-05-29 19:00:45,059  INFO     server               Create response: {'action': 'msg', 'time': 1653840045.0074942, 'from': 'client1', 'message': '159'}
+2022-05-29 19:00:45,061  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:09:25,620  INFO     server               Server starting with IP "" and PORT "7777"
+2022-05-29 19:09:25,620  INFO     server               Server was run on :7777
+2022-05-29 19:09:25,629  INFO     server               Client connected ('127.0.0.1', 52587)
+2022-05-29 19:09:25,650  INFO     server               Client connected ('127.0.0.1', 52588)
+2022-05-29 19:09:25,654  INFO     server               Client connected ('127.0.0.1', 52589)
+2022-05-29 19:09:25,657  INFO     server               Client connected ('127.0.0.1', 52590)
+2022-05-29 19:09:25,665  INFO     server               Client connected ('127.0.0.1', 52591)
+2022-05-29 19:09:25,665  DEBUG    server               Process message: {'action': 'presence', 'time': 1653840565.6297746, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:09:25,665  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 19:09:25,691  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:09:25,901  DEBUG    server               Process message: {'action': 'presence', 'time': 1653840565.650773, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:09:25,901  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 19:09:25,903  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:09:25,903  DEBUG    server               Process message: {'action': 'presence', 'time': 1653840565.6547725, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:09:25,903  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 19:09:25,905  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:09:25,905  DEBUG    server               Process message: {'action': 'presence', 'time': 1653840565.6577728, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:09:25,906  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 19:09:25,907  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:09:25,908  DEBUG    server               Process message: {'action': 'presence', 'time': 1653840565.6657724, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:09:25,908  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 19:09:25,910  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:09:55,550  DEBUG    server               Process message: {'action': 'msg', 'time': 1653840595.419203, 'from': 'client1', 'message': '111'}
+2022-05-29 19:09:55,550  INFO     server               Create response: {'action': 'msg', 'time': 1653840595.419203, 'from': 'client1', 'message': '111'}
+2022-05-29 19:09:55,552  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:10:00,030  DEBUG    server               Process message: {'action': 'msg', 'time': 1653840599.86755, 'from': 'client1', 'message': '222'}
+2022-05-29 19:10:00,030  INFO     server               Create response: {'action': 'msg', 'time': 1653840599.86755, 'from': 'client1', 'message': '222'}
+2022-05-29 19:10:00,032  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:10:04,703  DEBUG    server               Process message: {'action': 'msg', 'time': 1653840604.6353018, 'from': 'client1', 'message': '111'}
+2022-05-29 19:10:04,703  INFO     server               Create response: {'action': 'msg', 'time': 1653840604.6353018, 'from': 'client1', 'message': '111'}
+2022-05-29 19:10:04,705  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:10:07,203  DEBUG    server               Process message: {'action': 'msg', 'time': 1653840607.0271096, 'from': 'client1', 'message': '222'}
+2022-05-29 19:10:07,203  INFO     server               Create response: {'action': 'msg', 'time': 1653840607.0271096, 'from': 'client1', 'message': '222'}
+2022-05-29 19:10:07,205  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:10:08,831  DEBUG    server               Process message: {'action': 'msg', 'time': 1653840608.7237399, 'from': 'client1', 'message': '222'}
+2022-05-29 19:10:08,831  INFO     server               Create response: {'action': 'msg', 'time': 1653840608.7237399, 'from': 'client1', 'message': '222'}
+2022-05-29 19:10:08,833  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:10:10,463  DEBUG    server               Process message: {'action': 'msg', 'time': 1653840610.3554761, 'from': 'client1', 'message': '333'}
+2022-05-29 19:10:10,463  INFO     server               Create response: {'action': 'msg', 'time': 1653840610.3554761, 'from': 'client1', 'message': '333'}
+2022-05-29 19:10:10,465  DEBUG    server               Function create_response was called from function main
+2022-05-29 19:10:17,598  INFO     server               Client ('127.0.0.1', 52587) disconnected
+2022-05-29 19:10:24,735  INFO     server               Client ('127.0.0.1', 52591) disconnected
+2022-05-29 19:30:46,154  DEBUG    server               Process message: {'action': 'presence', 'time': 1.1, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:30:46,155  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 19:30:46,201  DEBUG    test_server          Function create_response was called from function test_create_response_ok
+2022-05-29 19:31:09,071  DEBUG    server               Process message: {'action': 'UNKNOWN', 'time': 1.1, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:31:09,072  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-05-29 19:31:09,131  DEBUG    test_server          Function create_response was called from function test_create_response_wrong_action
+2022-05-29 19:31:58,869  DEBUG    server               Process message: {'time': 1.1, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:31:58,869  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-05-29 19:31:58,942  DEBUG    test_server          Function create_response was called from function test_create_response_no_action
+2022-05-29 19:32:01,149  DEBUG    server               Process message: {'action': 'presence', 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:32:01,149  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-05-29 19:32:01,196  DEBUG    test_server          Function create_response was called from function test_create_response_no_time
+2022-05-29 19:32:02,995  DEBUG    server               Process message: {'action': 'presence', 'time': 1.1, 'type': 'status'}
+2022-05-29 19:32:02,995  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-05-29 19:32:03,041  DEBUG    test_server          Function create_response was called from function test_create_response_no_user
+2022-05-29 19:32:05,317  DEBUG    server               Process message: {'action': 'presence', 'time': 1.1, 'type': 'status', 'user': {'account_name': 'client2', 'status': 'I am here!'}}
+2022-05-29 19:32:05,317  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-05-29 19:32:05,364  DEBUG    test_server          Function create_response was called from function test_create_response_wrong_user
+2022-05-29 19:32:40,111  DEBUG    server               Process message: {'time': 1.1, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:32:40,111  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-05-29 19:32:40,158  DEBUG    test_server          Function create_response was called from function test_create_response_no_action
+2022-05-29 19:32:40,158  DEBUG    server               Process message: {'action': 'presence', 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:32:40,158  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-05-29 19:32:40,161  DEBUG    test_server          Function create_response was called from function test_create_response_no_time
+2022-05-29 19:32:40,162  DEBUG    server               Process message: {'action': 'presence', 'time': 1.1, 'type': 'status'}
+2022-05-29 19:32:40,162  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-05-29 19:32:40,165  DEBUG    test_server          Function create_response was called from function test_create_response_no_user
+2022-05-29 19:32:40,165  DEBUG    server               Process message: {'action': 'presence', 'time': 1.1, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:32:40,166  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-05-29 19:32:40,169  DEBUG    test_server          Function create_response was called from function test_create_response_ok
+2022-05-29 19:32:40,169  DEBUG    server               Process message: {'action': 'UNKNOWN', 'time': 1.1, 'type': 'status', 'user': {'account_name': 'client1', 'status': 'I am here!'}}
+2022-05-29 19:32:40,169  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-05-29 19:32:40,172  DEBUG    test_server          Function create_response was called from function test_create_response_wrong_action
+2022-05-29 19:32:40,172  DEBUG    server               Process message: {'action': 'presence', 'time': 1.1, 'type': 'status', 'user': {'account_name': 'client2', 'status': 'I am here!'}}
+2022-05-29 19:32:40,173  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-05-29 19:32:40,175  DEBUG    test_server          Function create_response was called from function test_create_response_wrong_user

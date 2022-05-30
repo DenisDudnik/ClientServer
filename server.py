@@ -30,6 +30,7 @@ def create_response(msg, client, message_list):
     elif ACTION in msg and msg[ACTION] == MESSAGE and TIME in msg and 'from' in msg and MESSAGE_TEXT in msg:
             message_list.append(msg)
             # TODO: here we should create message for author (response 200)
+            return
     # bad message
     else:
         msg = {
@@ -103,6 +104,12 @@ def main():
                         logger.info(f'Client {client.getpeername()} disconnected')
                         clients.remove(client)
             
+            # Отправляем только одно сообщение, т.к. после его получения клиент выйдет
+            # из режима ожидания сообщений и нужно дождаться когда он будет готов принять
+            # следующее. При этом он снова попадет в список ожидающих. Сообщения хранятся 
+            # за пределами while и никуда не пропадают
+            # В даном варианте не все клиенты получат весь набор сообщений.
+            # Был онлайн - получил. Был оффлайн - не получишь никогда.
             if messages and send_lst:
                 for client in send_lst:
                     try:

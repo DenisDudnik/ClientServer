@@ -16,7 +16,7 @@ formatter = logging.Formatter(
 filename = os.path.join(os.path.dirname(
     os.path.abspath(__file__)), '..', 'logs', 'server.log')
 fh = handlers.TimedRotatingFileHandler(
-    filename, when='midnight', interval=1, encoding=ENCODING)
+    filename, when='midnight', interval=1, encoding=ENCODING, delay=True)
 fh.setLevel(logging.DEBUG)
 fh.setFormatter(formatter)
 
