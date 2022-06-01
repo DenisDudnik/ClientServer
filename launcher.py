@@ -16,10 +16,9 @@ while True:
         process_lst.append(subprocess.Popen(
             'python server.py', creationflags=subprocess.CREATE_NEW_CONSOLE))
 
-        for _ in range(2):
-            process_lst.append(subprocess.Popen(
-                'python client.py -m send', creationflags=subprocess.CREATE_NEW_CONSOLE))
-
-        for _ in range(3):
-            process_lst.append(subprocess.Popen(
-                'python client.py', creationflags=subprocess.CREATE_NEW_CONSOLE))
+        process_lst.append(subprocess.Popen(
+            'python client.py -n User1', creationflags=subprocess.CREATE_NEW_CONSOLE))
+        process_lst.append(subprocess.Popen(
+            'python client.py -n User2', creationflags=subprocess.CREATE_NEW_CONSOLE))
+        process_lst.append(subprocess.Popen(
+            'python client.py -n User3', creationflags=subprocess.CREATE_NEW_CONSOLE))

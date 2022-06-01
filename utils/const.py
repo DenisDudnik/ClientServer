@@ -19,6 +19,8 @@ ACTION = 'action'
 TIME = 'time'
 USER = 'user'
 ACCOUNT_NAME = 'account_name'
+FROM = 'from'
+TO = 'to'
 
 # Protocol JIM other keys
 PRESENCE = 'presence'
@@ -27,3 +29,4 @@ ERROR = 'error'
 ALERT = 'alert'
 MESSAGE = 'msg'
 MESSAGE_TEXT = 'message'
+EXIT = "quit"

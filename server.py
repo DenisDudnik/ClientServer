@@ -20,7 +20,7 @@ def create_response(msg, client, message_list):
 
     # valid presense message
     if ACTION in msg and msg[ACTION] == PRESENCE and TIME in msg and USER in msg \
-            and msg[USER][ACCOUNT_NAME] == 'client1':
+            and msg[USER][ACCOUNT_NAME]:
         # and msg[USER][ACCOUNT_NAME] in contact_list:
         msg = {
             RESPONSE: 200,
