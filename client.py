@@ -39,10 +39,11 @@ def create_presence(account_name, status=''):
 
 
 @Log()
-def create_exit():
+def create_exit(account_name):
     '''Function create exit message'''
     msg = {
         const.ACTION: const.EXIT,
+        const.ACCOUNT_NAME: account_name,
     }
     logger.debug(f'Create exit message: {msg}')
     return msg
@@ -76,7 +77,7 @@ def query_message_from_user(sock, account_name):
         print("Enter command")
         command = input()
         if command == '!exit':
-            send_message(sock, create_exit())
+            send_message(sock, create_exit(account_name))
             logger.info("Client closed by user's command")
             print("Good bye")
             time.sleep(0.5)
@@ -105,13 +106,13 @@ def process_answer(s:socket, account_name):
             msg = get_message(s)
             logger.debug(f'From server: {msg}')
         except (ValueError, json.JSONDecodeError):
-            logger.warning(f'Unknown message from server: {msg}')
+            logger.warning(f'Unknown message from server')
         except (OSError, ConnectionError, ConnectionAbortedError,
                 ConnectionResetError, json.JSONDecodeError):
             logger.critical("Connection was lost")
             break
         else:
-            logger.debug(f'Process message: {msg}')
+            logger.debug(f'{account_name} Process message: {msg}')
     
             # response messages
             if const.RESPONSE in msg:
@@ -141,8 +142,6 @@ def process_answer(s:socket, account_name):
             else: 
                 logger.error(f'Incorrect message: {msg}')
 
-    
-
 
 @Log()
 def get_args():
@@ -166,7 +165,7 @@ def get_args():
 def main():
     # client 127.0.0.1 5555 -n username
 
-    print("Welcome on the best messanger!!!")
+    print("Welcome on the best messenger!!!")
     server_address, server_port, account_name = get_args()
 
     if not account_name:
@@ -188,6 +187,7 @@ def main():
         s.connect((server_address, server_port))
         msg = create_presence(account_name=account_name, status='I am here!')
         send_message(s, msg)
+        time.sleep(0.5)
         try:
             data = get_message(s)
             logger.debug(f'From server: {data}')
@@ -210,9 +210,6 @@ def main():
 
         while income_service.is_alive() and send_service.is_alive():
             time.sleep(1)
-    
-    input('Press any key')
-
 
 
 if __name__ == '__main__':

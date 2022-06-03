@@ -1,4 +1,5 @@
 import subprocess
+import time
 
 process_lst = []
 
@@ -15,6 +16,8 @@ while True:
     elif action == 's':
         process_lst.append(subprocess.Popen(
             'python server.py', creationflags=subprocess.CREATE_NEW_CONSOLE))
+
+        time.sleep(1)
 
         process_lst.append(subprocess.Popen(
             'python client.py -n User1', creationflags=subprocess.CREATE_NEW_CONSOLE))
