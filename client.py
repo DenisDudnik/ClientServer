@@ -3,139 +3,213 @@ import json
 import sys
 import time
 import logging
+import threading
 import log.config.client_log_config
 from socket import socket, AF_INET, SOCK_STREAM
 from decors import Log
-from utils.const import DEFAULT_IP_ADDRESS, DEFAULT_PORT, ACTION, PRESENCE, \
-    TIME, USER, ACCOUNT_NAME, RESPONSE, ERROR, ALERT, MESSAGE, MESSAGE_TEXT
+from utils import const
 from utils.func import get_message, send_message
 
 logger = logging.getLogger('app.client')
 
 @Log()
-def create_presence(account_name='guest', status=''):
+def show_help():
+    print("""
+    Available commands:\n
+    !help - show this help message\n
+    !exit - exit the application\n
+    !send - send a message\n
+    after this command you will be asked for recipient and message\n
+    """)
+
+@Log()
+def create_presence(account_name, status=''):
     '''Function create presence message'''
     msg = {
-        ACTION: PRESENCE,
-        TIME: time.time(),
+        const.ACTION: const.PRESENCE,
+        const.TIME: time.time(),
         "type": "status",
-        USER: {
-            ACCOUNT_NAME: account_name,
+        const.USER: {
+            const.ACCOUNT_NAME: account_name,
             "status": status
         }
     }
     logger.debug(f'Create presence message: {msg}')
     return msg
 
+
 @Log()
-def create_message(sock, account_name='guest'):
-    '''Function get user's text and create message
-    or finish work
+def create_exit(account_name):
+    '''Function create exit message'''
+    msg = {
+        const.ACTION: const.EXIT,
+        const.ACCOUNT_NAME: account_name,
+    }
+    logger.debug(f'Create exit message: {msg}')
+    return msg
+
+@Log()
+def create_message(account_name):
+    '''Function get user's text and recipient and create message
     '''
     
-    message = input("Enter text for send or '!x' for exit: ")
+    to = input("Enter recipient's name: ")
+    message = input("Enter message: ")
     
-    # command for exit
-    if message == '!x':
-        logger.info("Client closed by user's command")
-        print("Good bye")
-        sock.close()
-        sys.exit(0)
-
-    # else create message
-    # TODO: add "to"
+    # create message
     msg = {
-        ACTION: MESSAGE,
-        TIME: time.time(),
-        "from": account_name,
-        MESSAGE_TEXT: message,
+        const.ACTION: const.MESSAGE,
+        const.TIME: time.time(),
+        const.FROM: account_name,
+        const.TO: to,
+        const.MESSAGE_TEXT: message,
     }
     logger.debug(f'Create message: {msg}')
     return msg
 
 @Log()
-def process_answer(msg: dict):
-    '''Function process answer message'''
-    logger.debug(f'Process message: {msg}')
-    
-    # response messages
-    if RESPONSE in msg:
-        # for 2xx messages
-        if msg[RESPONSE] in range(200, 300):
-            return f'{msg[RESPONSE]}: {msg.get(ALERT)}'
-        # for other messages
-        return f'{msg[RESPONSE]}: {msg.get(ERROR)}'
+def query_message_from_user(sock, account_name):
+    '''Function get user's command and create message
+    or finish work
+    '''
+    show_help()
+    while True:
+        print("Enter command")
+        command = input()
+        if command == '!exit':
+            send_message(sock, create_exit(account_name))
+            logger.info("Client closed by user's command")
+            print("Good bye")
+            time.sleep(0.5)
+            sock.close()
+            break
+        elif command == '!send':
+            try:
+                send_message(sock, create_message(account_name))
+                print("Message was sent")
+            except:
+                logger.critical("Connection was lost")
+                break
+        elif command == '!help':
+            show_help()
+        else:
+            print(f"Unknown command: {command}")
+            show_help()
 
-    # action messages
-    if ACTION in msg:
-        # text messages
-        if msg[ACTION] == MESSAGE and TIME in msg and 'from' in msg and MESSAGE_TEXT in msg:
-            return f"{msg.get('from')}: {msg.get(MESSAGE_TEXT)}"
+    return
+
+@Log()
+def process_answer(s:socket, account_name):
+    '''Function process answer message'''
+    while True:
+        try:
+            msg = get_message(s)
+            logger.debug(f'From server: {msg}')
+        except (ValueError, json.JSONDecodeError):
+            logger.warning(f'Unknown message from server')
+        except (OSError, ConnectionError, ConnectionAbortedError,
+                ConnectionResetError, json.JSONDecodeError):
+            logger.critical("Connection was lost")
+            break
+        else:
+            logger.debug(f'{account_name} Process message: {msg}')
     
-    # unknown message type
-    raise ValueError
+            # response messages
+            if const.RESPONSE in msg:
+                # for 2xx messages
+                if msg[const.RESPONSE] in range(200, 300):
+                    logger.debug(f'{msg[const.RESPONSE]}: {msg.get(const.ALERT)}')
+                    print(f"Welcome, {account_name}")
+                # for other messages
+                logger.debug(f'{msg[const.RESPONSE]}: {msg.get(const.ERROR)}')
+                # Maybe username is busy
+                print(f"Error: {msg.get(const.ERROR)}")
+
+            # action messages
+            elif const.ACTION in msg:
+                # text messages
+                if msg[const.ACTION] == const.MESSAGE and const.TIME in msg\
+                    and const.FROM in msg and const.MESSAGE_TEXT in msg \
+                        and const.TO in msg:
+                    # message for this user
+                    if msg.get(const.TO) == account_name:
+                        print(f"FROM {msg.get(const.FROM)}: {msg.get(const.MESSAGE_TEXT)}")
+                    # message for other or chat
+                    else:
+                        pass
+            
+            # unknown message type
+            else: 
+                logger.error(f'Incorrect message: {msg}')
 
 
 @Log()
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("server_address", help="server address", default=DEFAULT_IP_ADDRESS, nargs="?")
-    parser.add_argument("server_port", type=int, help="server port", default=DEFAULT_PORT, nargs="?")
-    parser.add_argument("-m", "--mode", help="client mode", default="read", nargs="?")
+    parser.add_argument("server_address", help="server address", default=const.DEFAULT_IP_ADDRESS, nargs="?")
+    parser.add_argument("server_port", type=int, help="server port", default=const.DEFAULT_PORT, nargs="?")
+    parser.add_argument("-n", "--name", help="user name", default=None, nargs="?")
     args = parser.parse_args()
 
     server_address = args.server_address
     server_port = args.server_port
-    client_mode = args.mode
+    account_name = args.name
 
     if server_port < 1024 or server_port > 65535:
         logger.critical(f'Port should be in range 1024 to 65535. Port given is {server_port}')
         sys.exit(1)
-    
-    if not client_mode in ('read', 'send'):
-        logger.critical(f"Client mode should be 'read' or 'send'. Mode given is {client_mode}")
-        sys.exit(1)
-    
-    return server_address, server_port, client_mode
+       
+    return server_address, server_port, account_name
 
 
 def main():
-    # client 127.0.0.1 5555 -m send
+    # client 127.0.0.1 5555 -n username
 
-    server_address, server_port, client_mode = get_args()
+    print("Welcome on the best messenger!!!")
+    server_address, server_port, account_name = get_args()
 
-    # init socket, connect, send presence, get answer
+    if not account_name:
+        account_name = input("Please enter your account name: ")
+    
+    # if user entered empty username
+    if not account_name:
+        logger.critical("User didn't enter username")
+        sys.exit(1)
+    
+    logger.info(
+        f"Client running. Server address: {server_address}. "
+        f"Port: {server_port}. Account name: {account_name}")
+
+    # init socket, connect, send presence
     s = socket(AF_INET, SOCK_STREAM)
     try:
         logger.info(f'Connecting to {server_address}:{server_port}')
         s.connect((server_address, server_port))
-        msg = create_presence(account_name='client1', status='I am here!')
+        msg = create_presence(account_name=account_name, status='I am here!')
         send_message(s, msg)
+        time.sleep(0.5)
         try:
             data = get_message(s)
-            logger.debug(f'From server: {process_answer(data)}')
+            logger.debug(f'From server: {data}')
+            print(f"{account_name} was connected to {server_address}:{server_port}")
         except (ValueError, json.JSONDecodeError):
             logger.warning('Unknown message from server')
     except Exception as e:
         logger.critical(f'Connection failed. Error: {e}')
     else:
         # work mode
-        if client_mode == 'send':
-            print('Client mode is "send message"')
-        else:
-            print('Client mode is "receive message"')
-        
-        while True:
-            if client_mode == 'send':
-                msg = create_message(s, account_name='client1')
-                send_message(s, msg)   
-            else:
-                try:
-                    data = get_message(s)
-                    logger.debug(f'From server: {process_answer(data)}')
-                    print(process_answer(data))
-                except (ValueError, json.JSONDecodeError):
-                    logger.warning('Unknown message from server')
+        income_service = threading.Thread(target=process_answer, args=(s, account_name))
+        income_service.daemon = True
+        income_service.start()
+
+        send_service = threading.Thread(target=query_message_from_user, args=(s, account_name))
+        send_service.daemon = True
+        send_service.start()
+
+        logger.debug('Services started')
+
+        while income_service.is_alive() and send_service.is_alive():
+            time.sleep(1)
 
 
 if __name__ == '__main__':

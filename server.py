@@ -1,53 +1,106 @@
 import argparse
-import sys
 import json
 import logging
-import log.config.server_log_config
 import select
+import sys
+import time
+import log.config.server_log_config
+
 from socket import socket, AF_INET, SOCK_STREAM
 from decors import Log, log_dec
-from utils.const import ENCODING, DEFAULT_PORT, MAX_CONNECTIONS, MAX_PACKAGE_LENGTH, \
-    ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, RESPONSE, ERROR, ALERT, MESSAGE, \
-        MESSAGE_TEXT
+from utils import const
 from utils.func import get_message, send_message
 
 logger = logging.getLogger('app.server')
 
 @log_dec
-def create_response(msg, client, message_list):
+def create_response(msg:dict, client:socket, message_list:list, users:dict, clients:list):
     '''Function to create a response'''
     logger.debug(f'Process message: {msg}')
 
     # valid presense message
-    if ACTION in msg and msg[ACTION] == PRESENCE and TIME in msg and USER in msg \
-            and msg[USER][ACCOUNT_NAME] == 'client1':
+    if const.ACTION in msg and msg[const.ACTION] == const.PRESENCE and const.TIME in msg and const.USER in msg \
+            and msg[const.USER][const.ACCOUNT_NAME]:
+        # and msg[USER][ACCOUNT_NAME] in contact_list:
+        
+        # new user connected?
+        if msg.get(const.USER).get(const.ACCOUNT_NAME) not in users.keys():
+            users[msg[const.USER][const.ACCOUNT_NAME]] = client
+        
+        msg = {
+            const.RESPONSE: 200,
+            const.ALERT: "OK"
+        }
+        send_message(client, msg)
+        logger.info(f'Create and send response: {msg} for user')
+        return
+    
+    # valid quit message
+    if const.ACTION in msg and msg[const.ACTION] == const.EXIT and const.ACCOUNT_NAME in msg:
         # and msg[USER][ACCOUNT_NAME] in contact_list:
         msg = {
-            RESPONSE: 200,
-            ALERT: "OK"
+            const.RESPONSE: 200,
+            const.ALERT: "Good bye!"
         }
+        send_message(client, msg)
+        logger.info(f'Create and send response: {msg} for user')
+        time.sleep(0.5)
+        client.close()
+        clients.pop(msg[const.ACCOUNT_NAME])
+        users.pop(msg[const.ACCOUNT_NAME])
+        return
+
     # text messages (we shouldn't process msg, just resend to client or chat)
-    elif ACTION in msg and msg[ACTION] == MESSAGE and TIME in msg and 'from' in msg and MESSAGE_TEXT in msg:
+    if const.ACTION in msg and msg[const.ACTION] == const.MESSAGE and const.TIME in msg \
+        and const.FROM in msg and const.TO in msg and const.MESSAGE_TEXT in msg:
             message_list.append(msg)
+            logger.info(f'Append message to list: {msg}')
             # TODO: here we should create message for author (response 200)
             return
+    
     # bad message
-    else:
-        msg = {
-            RESPONSE: 400,
-            ERROR: "Bad Request"
-        }
+    msg = {
+        const.RESPONSE: 400,
+        const.ERROR: "Bad Request"
+    }
+
     logger.info(f'Create response: {msg}')
     if client:
         send_message(client, msg)
-    return msg
+    return
+
+
+@log_dec
+def send_msg_to_user(msg:dict, users:dict, send_lst:list):
+    '''Function to send a message to user'''
+    logger.debug(f'Process message: {msg}')
+
+    # text messages (we shouldn't process msg, just resend to client or chat)
+    # if const.ACTION in msg and msg[const.ACTION] == const.MESSAGE and const.TIME in msg \
+    #     and const.FROM in msg and const.TO in msg and const.MESSAGE_TEXT in msg:
+    #         message_list.append(msg)
+    #         logger.info(f'Append message to list: {msg}')
+    #         # TODO: here we should create message for author (response 200)
+    #         return
+    
+    # user was found in server list and in waiting list
+    if msg[const.TO] in users and users[msg[const.TO]] in send_lst:
+        send_message(users[msg[const.TO]], msg)
+        logger.info(f'Send message. From {msg[const.FROM]} to {msg[const.TO]}: {msg}')
+    # user was found in server list but not in waiting list, probably disconnected
+    elif msg[const.TO] in users and users[msg[const.TO]] not in send_lst:
+        raise ConnectionError
+    # user wasn't found
+    else:
+        logger.info(f"User {msg[const.TO]} wasn't found on server")
+    return
 
 
 @log_dec
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("-a", "--address", help="server address", default="", nargs="?")
-    parser.add_argument("-p", "--port", type=int, help="server port", default=DEFAULT_PORT, nargs="?")
+    parser.add_argument("-p", "--port", type=int, help="server port", default=const.DEFAULT_PORT, nargs="?")
     args = parser.parse_args()
 
     server_address = args.address
@@ -74,10 +127,12 @@ def main():
     except OSError as e:
         logger.error('Error open socket. Error: {e}')
     else:
-        s.listen(MAX_CONNECTIONS)
+        s.listen(const.MAX_CONNECTIONS)
         logger.info(f'Server was run on {server_address}:{server_port}')
+        print(f'Server was run on {server_address or "ANY"}:{server_port}')
 
         clients, messages = [], []
+        users = {}
 
         while True:
             try:            
@@ -99,25 +154,20 @@ def main():
             if recv_lst:
                 for client in recv_lst:
                     try:
-                        create_response(get_message(client), client, messages)
+                        create_response(get_message(client), client, messages, users, clients)
                     except:
-                        logger.info(f'Client {client.getpeername()} disconnected')
+                        logger.info(f'Client {client.getpeername()} was disconnected')
                         clients.remove(client)
             
-            # Отправляем только одно сообщение, т.к. после его получения клиент выйдет
-            # из режима ожидания сообщений и нужно дождаться когда он будет готов принять
-            # следующее. При этом он снова попадет в список ожидающих. Сообщения хранятся 
-            # за пределами while и никуда не пропадают
-            # В даном варианте не все клиенты получат весь набор сообщений.
-            # Был онлайн - получил. Был оффлайн - не получишь никогда.
-            if messages and send_lst:
-                for client in send_lst:
-                    try:
-                        send_message(client, messages[0])
-                    except:
-                        logger.info(f'Client {client.getpeername()} disconnected')
-                        clients.remove(client)
-                del messages[0]
+            for message in messages:
+                try:
+                    send_msg_to_user(message, users, send_lst)
+                except:
+                    logger.info(f'Client {message[const.TO]} was disconnected')
+                    clients.remove(users[message[const.TO]])
+                    users.pop(message[const.TO])
+            messages.clear()
+
     finally:
         s.close()
         logger.info('Server was stopped')

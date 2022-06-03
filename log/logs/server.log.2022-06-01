@@ -1,0 +1,185 @@
+2022-06-01 16:56:18,719  DEBUG    server               Function get_args was called from function main
+2022-06-01 16:56:18,722  INFO     server               Server starting with IP "" and PORT "7777"
+2022-06-01 16:56:18,722  INFO     server               Server was run on :7777
+2022-06-01 16:56:18,750  INFO     server               Client connected ('127.0.0.1', 63497)
+2022-06-01 16:56:18,750  INFO     server               Client connected ('127.0.0.1', 63496)
+2022-06-01 16:56:18,750  INFO     server               Client connected ('127.0.0.1', 63498)
+2022-06-01 16:56:18,951  DEBUG    server               Process message: {'action': 'presence', 'time': 1654091778.7494214, 'type': 'status', 'user': {'account_name': 'User3', 'status': 'I am here!'}}
+2022-06-01 16:56:18,951  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 16:56:18,953  DEBUG    server               Function create_response was called from function main
+2022-06-01 16:56:18,954  DEBUG    server               Process message: {'action': 'presence', 'time': 1654091778.7494214, 'type': 'status', 'user': {'account_name': 'User1', 'status': 'I am here!'}}
+2022-06-01 16:56:18,954  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 16:56:18,955  DEBUG    server               Function create_response was called from function main
+2022-06-01 16:56:18,956  DEBUG    server               Process message: {'action': 'presence', 'time': 1654091778.7494214, 'type': 'status', 'user': {'account_name': 'User2', 'status': 'I am here!'}}
+2022-06-01 16:56:18,956  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 16:56:18,958  DEBUG    server               Function create_response was called from function main
+2022-06-01 16:56:19,171  INFO     server               Client ('127.0.0.1', 63497) disconnected
+2022-06-01 16:56:19,171  INFO     server               Client ('127.0.0.1', 63496) disconnected
+2022-06-01 16:56:19,172  INFO     server               Client ('127.0.0.1', 63498) disconnected
+2022-06-01 17:04:02,617  DEBUG    server               Function get_args was called from function main
+2022-06-01 17:04:02,618  INFO     server               Server starting with IP "" and PORT "7777"
+2022-06-01 17:04:02,618  INFO     server               Server was run on :7777
+2022-06-01 17:04:02,619  INFO     server               Client connected ('127.0.0.1', 63522)
+2022-06-01 17:04:02,630  INFO     server               Client connected ('127.0.0.1', 63523)
+2022-06-01 17:04:02,630  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092242.6190536, 'type': 'status', 'user': {'account_name': 'User1', 'status': 'I am here!'}}
+2022-06-01 17:04:02,630  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 17:04:02,631  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:04:02,631  INFO     server               Client connected ('127.0.0.1', 63524)
+2022-06-01 17:04:02,631  INFO     server               Client ('127.0.0.1', 63522) disconnected
+2022-06-01 17:04:02,632  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092242.630054, 'type': 'status', 'user': {'account_name': 'User2', 'status': 'I am here!'}}
+2022-06-01 17:04:02,632  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 17:04:02,633  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:04:02,633  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092242.630054, 'type': 'status', 'user': {'account_name': 'User3', 'status': 'I am here!'}}
+2022-06-01 17:04:02,633  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 17:04:02,635  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:04:02,837  INFO     server               Client ('127.0.0.1', 63523) disconnected
+2022-06-01 17:04:02,838  INFO     server               Client ('127.0.0.1', 63524) disconnected
+2022-06-01 17:05:57,315  DEBUG    server               Function get_args was called from function main
+2022-06-01 17:05:57,316  INFO     server               Server starting with IP "" and PORT "7777"
+2022-06-01 17:05:57,316  INFO     server               Server was run on :7777
+2022-06-01 17:05:57,317  INFO     server               Client connected ('127.0.0.1', 63528)
+2022-06-01 17:05:57,322  INFO     server               Client connected ('127.0.0.1', 63529)
+2022-06-01 17:05:57,322  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092357.3170066, 'type': 'status', 'user': {'account_name': 'User3', 'status': 'I am here!'}}
+2022-06-01 17:05:57,322  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 17:05:57,323  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:05:57,534  INFO     server               Client ('127.0.0.1', 63528) disconnected
+2022-06-01 17:05:57,534  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092357.3220065, 'type': 'status', 'user': {'account_name': 'User2', 'status': 'I am here!'}}
+2022-06-01 17:05:57,534  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 17:05:57,535  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:05:57,737  INFO     server               Client ('127.0.0.1', 63529) disconnected
+2022-06-01 17:05:57,814  INFO     server               Client connected ('127.0.0.1', 63527)
+2022-06-01 17:05:58,015  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092357.8143294, 'type': 'status', 'user': {'account_name': 'User1', 'status': 'I am here!'}}
+2022-06-01 17:05:58,015  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 17:05:58,017  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:05:58,232  INFO     server               Client ('127.0.0.1', 63527) disconnected
+2022-06-01 17:07:59,437  DEBUG    server               Function get_args was called from function main
+2022-06-01 17:07:59,438  INFO     server               Server starting with IP "" and PORT "7777"
+2022-06-01 17:07:59,438  INFO     server               Server was run on :7777
+2022-06-01 17:07:59,477  INFO     server               Client connected ('127.0.0.1', 63535)
+2022-06-01 17:07:59,482  INFO     server               Client connected ('127.0.0.1', 63536)
+2022-06-01 17:07:59,482  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092479.4763477, 'type': 'status', 'user': {'account_name': 'User2', 'status': 'I am here!'}}
+2022-06-01 17:07:59,482  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:07:59,483  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:07:59,483  INFO     server               Client connected ('127.0.0.1', 63537)
+2022-06-01 17:07:59,483  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092479.4823482, 'type': 'status', 'user': {'account_name': 'User1', 'status': 'I am here!'}}
+2022-06-01 17:07:59,483  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:07:59,484  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:07:59,694  INFO     server               Client ('127.0.0.1', 63535) disconnected
+2022-06-01 17:07:59,694  INFO     server               Client ('127.0.0.1', 63536) disconnected
+2022-06-01 17:07:59,695  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092479.483349, 'type': 'status', 'user': {'account_name': 'User3', 'status': 'I am here!'}}
+2022-06-01 17:07:59,695  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:07:59,697  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:07:59,912  INFO     server               Client ('127.0.0.1', 63537) disconnected
+2022-06-01 17:09:37,973  DEBUG    server               Function get_args was called from function main
+2022-06-01 17:09:37,974  INFO     server               Server starting with IP "" and PORT "7777"
+2022-06-01 17:09:37,974  INFO     server               Server was run on :7777
+2022-06-01 17:09:38,005  INFO     server               Client connected ('127.0.0.1', 63548)
+2022-06-01 17:09:38,013  INFO     server               Client connected ('127.0.0.1', 63549)
+2022-06-01 17:09:38,013  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092578.005867, 'type': 'status', 'user': {'account_name': 'User1', 'status': 'I am here!'}}
+2022-06-01 17:09:38,013  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:09:38,014  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:09:38,019  INFO     server               Client connected ('127.0.0.1', 63550)
+2022-06-01 17:09:38,019  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092578.0138679, 'type': 'status', 'user': {'account_name': 'User3', 'status': 'I am here!'}}
+2022-06-01 17:09:38,019  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:09:38,020  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:09:38,224  INFO     server               Client ('127.0.0.1', 63548) disconnected
+2022-06-01 17:09:38,224  INFO     server               Client ('127.0.0.1', 63549) disconnected
+2022-06-01 17:09:38,225  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092578.0198674, 'type': 'status', 'user': {'account_name': 'User2', 'status': 'I am here!'}}
+2022-06-01 17:09:38,225  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:09:38,227  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:09:38,431  INFO     server               Client ('127.0.0.1', 63550) disconnected
+2022-06-01 17:09:53,597  DEBUG    server               Function get_args was called from function main
+2022-06-01 17:09:53,598  INFO     server               Server starting with IP "" and PORT "7777"
+2022-06-01 17:09:53,599  INFO     server               Server was run on :7777
+2022-06-01 17:09:54,108  INFO     server               Client connected ('127.0.0.1', 63552)
+2022-06-01 17:09:54,108  INFO     server               Client connected ('127.0.0.1', 63553)
+2022-06-01 17:09:54,109  INFO     server               Client connected ('127.0.0.1', 63554)
+2022-06-01 17:09:54,312  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092594.1085677, 'type': 'status', 'user': {'account_name': 'User1', 'status': 'I am here!'}}
+2022-06-01 17:09:54,312  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:09:54,314  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:09:54,314  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092594.1085677, 'type': 'status', 'user': {'account_name': 'User2', 'status': 'I am here!'}}
+2022-06-01 17:09:54,314  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:09:54,316  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:09:54,316  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092594.1085677, 'type': 'status', 'user': {'account_name': 'User3', 'status': 'I am here!'}}
+2022-06-01 17:09:54,317  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:09:54,318  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:09:54,530  INFO     server               Client ('127.0.0.1', 63552) disconnected
+2022-06-01 17:09:54,530  INFO     server               Client ('127.0.0.1', 63553) disconnected
+2022-06-01 17:09:54,531  INFO     server               Client ('127.0.0.1', 63554) disconnected
+2022-06-01 17:10:55,951  INFO     server               Client connected ('127.0.0.1', 63556)
+2022-06-01 17:10:56,151  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092655.9503267, 'type': 'status', 'user': {'account_name': 'Guest1', 'status': 'I am here!'}}
+2022-06-01 17:10:56,151  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:10:56,153  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:10:56,368  INFO     server               Client ('127.0.0.1', 63556) disconnected
+2022-06-01 17:12:20,230  INFO     server               Client connected ('127.0.0.1', 63562)
+2022-06-01 17:12:20,433  DEBUG    server               Process message: {'action': 'presence', 'time': 1654092740.2295778, 'type': 'status', 'user': {'account_name': 'Guest1', 'status': 'I am here!'}}
+2022-06-01 17:12:20,433  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:12:20,434  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:12:58,100  DEBUG    server               Process message: {'action': 'msg', 'time': 1654092777.9074926, 'from': 'Guest1', 'to': 'Guest1', 'message': 'Hi!'}
+2022-06-01 17:12:58,102  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:13:29,181  DEBUG    server               Process message: {'action': 'quit'}
+2022-06-01 17:13:29,181  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 17:13:29,183  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:13:29,601  INFO     server               Client ('127.0.0.1', 63562) disconnected
+2022-06-01 17:16:44,412  INFO     server               Client connected ('127.0.0.1', 63568)
+2022-06-01 17:16:44,615  DEBUG    server               Process message: {'action': 'presence', 'time': 1654093004.412377, 'type': 'status', 'user': {'account_name': 'Guest1', 'status': 'I am here!'}}
+2022-06-01 17:16:44,615  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:16:44,617  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:16:52,130  DEBUG    server               Process message: {'action': 'quit'}
+2022-06-01 17:16:52,130  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 17:16:52,132  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:16:52,548  INFO     server               Client ('127.0.0.1', 63568) disconnected
+2022-06-01 17:17:31,460  INFO     server               Client connected ('127.0.0.1', 63570)
+2022-06-01 17:17:31,669  DEBUG    server               Process message: {'action': 'presence', 'time': 1654093051.459394, 'type': 'status', 'user': {'account_name': 'G', 'status': 'I am here!'}}
+2022-06-01 17:17:31,669  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:17:31,671  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:17:43,449  DEBUG    server               Process message: {'action': 'msg', 'time': 1654093063.394007, 'from': 'G', 'to': 'G', 'message': 'ertyujuu'}
+2022-06-01 17:17:43,451  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:18:26,964  DEBUG    server               Process message: {'action': 'quit'}
+2022-06-01 17:18:26,964  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 17:18:26,966  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:18:27,381  INFO     server               Client ('127.0.0.1', 63570) disconnected
+2022-06-01 17:19:12,539  INFO     server               Client connected ('127.0.0.1', 63576)
+2022-06-01 17:19:12,745  DEBUG    server               Process message: {'action': 'presence', 'time': 1654093152.5388622, 'type': 'status', 'user': {'account_name': 'G', 'status': 'I am here!'}}
+2022-06-01 17:19:12,745  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:19:12,747  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:19:24,509  DEBUG    server               Process message: {'action': 'msg', 'time': 1654093164.4571218, 'from': 'G', 'to': 'G', 'message': '546547847'}
+2022-06-01 17:19:24,510  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:20:01,916  DEBUG    server               Process message: {'action': 'quit'}
+2022-06-01 17:20:01,916  INFO     server               Create response: {'response': 400, 'error': 'Bad Request'}
+2022-06-01 17:20:01,918  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:20:02,335  INFO     server               Client ('127.0.0.1', 63576) disconnected
+2022-06-01 17:20:14,425  DEBUG    server               Function get_args was called from function main
+2022-06-01 17:20:14,426  INFO     server               Server starting with IP "" and PORT "7777"
+2022-06-01 17:20:14,426  INFO     server               Server was run on :7777
+2022-06-01 17:20:14,445  INFO     server               Client connected ('127.0.0.1', 63577)
+2022-06-01 17:20:14,446  INFO     server               Client connected ('127.0.0.1', 63578)
+2022-06-01 17:20:14,446  DEBUG    server               Process message: {'action': 'presence', 'time': 1654093214.4454386, 'type': 'status', 'user': {'account_name': 'User2', 'status': 'I am here!'}}
+2022-06-01 17:20:14,447  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:20:14,448  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:20:14,448  INFO     server               Client connected ('127.0.0.1', 63579)
+2022-06-01 17:20:14,448  DEBUG    server               Process message: {'action': 'presence', 'time': 1654093214.4464383, 'type': 'status', 'user': {'account_name': 'User1', 'status': 'I am here!'}}
+2022-06-01 17:20:14,448  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:20:14,449  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:20:14,651  DEBUG    server               Process message: {'action': 'presence', 'time': 1654093214.4474394, 'type': 'status', 'user': {'account_name': 'User3', 'status': 'I am here!'}}
+2022-06-01 17:20:14,651  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:20:14,652  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:21:57,339  DEBUG    server               Function get_args was called from function main
+2022-06-01 17:21:57,340  INFO     server               Server starting with IP "" and PORT "7777"
+2022-06-01 17:21:57,340  INFO     server               Server was run on :7777
+2022-06-01 17:21:57,359  INFO     server               Client connected ('127.0.0.1', 63814)
+2022-06-01 17:21:57,371  INFO     server               Client connected ('127.0.0.1', 63815)
+2022-06-01 17:21:57,371  DEBUG    server               Process message: {'action': 'presence', 'time': 1654093317.3597033, 'type': 'status', 'user': {'account_name': 'User1', 'status': 'I am here!'}}
+2022-06-01 17:21:57,371  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:21:57,372  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:21:57,373  INFO     server               Client connected ('127.0.0.1', 63816)
+2022-06-01 17:21:57,373  DEBUG    server               Process message: {'action': 'presence', 'time': 1654093317.3717036, 'type': 'status', 'user': {'account_name': 'User2', 'status': 'I am here!'}}
+2022-06-01 17:21:57,373  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:21:57,374  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:21:57,374  DEBUG    server               Process message: {'action': 'presence', 'time': 1654093317.3717036, 'type': 'status', 'user': {'account_name': 'User3', 'status': 'I am here!'}}
+2022-06-01 17:21:57,374  INFO     server               Create response: {'response': 200, 'alert': 'OK'}
+2022-06-01 17:21:57,375  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:22:21,203  DEBUG    server               Process message: {'action': 'msg', 'time': 1654093341.0158281, 'from': 'User2', 'to': 'User1', 'message': 'q1'}
+2022-06-01 17:22:21,204  DEBUG    server               Function create_response was called from function main
+2022-06-01 17:22:50,074  DEBUG    server               Process message: {'action': 'msg', 'time': 1654093369.9593916, 'from': 'User2', 'to': 'User3', 'message': 'q3'}
+2022-06-01 17:22:50,076  DEBUG    server               Function create_response was called from function main
